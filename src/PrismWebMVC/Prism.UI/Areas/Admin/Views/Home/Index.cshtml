@@ -1,0 +1,33 @@
+﻿@using Prism.Domain.Entities
+@model IEnumerable<Category>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-body">
+            <h5 class="card-title">Bordered Table</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">@item.Id</th>
+                                <td>@item.Name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
