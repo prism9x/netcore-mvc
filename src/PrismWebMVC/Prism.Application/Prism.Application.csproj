@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Prism.Domain\Prism.Domain.csproj" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Prism.DataAccess\Prism.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
