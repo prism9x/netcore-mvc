@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Prism.Application.Abstracts;
 
 namespace Prism.UI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class HomeController(ICategoryService categoryService) : Controller
+    [Authorize]
+    public class HomeController() : Controller
     {
         public async Task<IActionResult> Index()
         {
-            var data = await categoryService.GetAll();
-            return View(data);
+            return View();
         }
     }
 }

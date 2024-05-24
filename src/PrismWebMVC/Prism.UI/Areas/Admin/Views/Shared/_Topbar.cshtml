@@ -1,4 +1,5 @@
-﻿<header class="topbar-nav">
+﻿@using System.Security.Claims
+<header class="topbar-nav">
     <nav class="navbar navbar-expand fixed-top">
         <ul class="navbar-nav mr-auto align-items-center">
             <li class="nav-item">
@@ -44,8 +45,8 @@
                             <div class="media">
                                 <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
                                 <div class="media-body">
-                                    <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
-                                    <p class="user-subtitle">mccoy@example.com</p>
+                                    <h6 class="mt-2 user-title">@User.Identity?.Name</h6>
+                                    <p class="user-subtitle">@User.FindFirst(ClaimTypes.Email)?.Value</p>
                                 </div>
                             </div>
                         </a>
@@ -57,7 +58,7 @@
                     <li class="dropdown-divider"></li>
                     <li class="dropdown-item"><i class="icon-settings mr-2"></i> Cài đặt</li>
                     <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-power mr-2"></i> Đăng xuất</li>
+                    <li class="dropdown-item"><i class="icon-power mr-2"></i> <a asp-controller="authentication" asp-action="logout">Đăng xuất</a></li>
                 </ul>
             </li>
         </ul>

@@ -5,14 +5,18 @@ namespace Prism.UI
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
 
             builder.Services.ConfigureIdentity(builder.Configuration);
+            // DI
             builder.Services.AddDependencyInjection();
+            // AutoMapper
+            builder.Services.AddAutoMapper();
+
 
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -21,9 +25,10 @@ namespace Prism.UI
             var app = builder.Build();
 
             // Auto Migration
-            app.AutoMigration().GetAwaiter().GetResult();
+            await app.AutoMigration();
             // Seed Data
-            app.SeedData(builder.Configuration).GetAwaiter().GetResult(); ;
+            await app.SeedData(builder.Configuration);
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

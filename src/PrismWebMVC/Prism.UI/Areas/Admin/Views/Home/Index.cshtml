@@ -1,6 +1,4 @@
-﻿@using Prism.Domain.Entities
-@model IEnumerable<Category>
-@{
+﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -17,13 +15,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <th scope="row">@item.Id</th>
-                                <td>@item.Name</td>
-                            </tr>
-                        }
+                        
                     </tbody>
                 </table>
             </div>
